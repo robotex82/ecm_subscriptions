@@ -30,7 +30,7 @@ module Ecm
           it "should deliver the subscription request" do
             expect {
               post :create, :subscription_request => valid_attributes
-            }.to change(ActionMailer::Base.deliveries, :size).by(1)  
+            }.to change(ActionMailer::Base.deliveries, :size).by(2)  
           end
           
           it "assigns a newly created subscription request as @subscription_request" do

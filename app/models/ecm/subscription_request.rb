@@ -21,9 +21,7 @@ class Ecm::SubscriptionRequest < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      :subject => "Subscription Request",
-      :to => to,
-      :from => %("#{fullname}" <#{email}>)
+      :subject => "Subscription Request"
     }
   end
   
@@ -31,7 +29,53 @@ class Ecm::SubscriptionRequest < MailForm::Base
     "#{firstname} #{lastname}"
   end
   
-  def to
-    raise "Call to abstract method: to. You have tu subclass Ecm::SubscriptionRequest and define the method 'to'"
-  end    
+  def deliver!
+    Notifier.request(self).deliver
+    Notifier.confirmation(self).deliver
+  end  
+    
+  class Notifier < ActionMailer::Base
+    self.mailer_name = "mail_form"
+    append_view_path File.expand_path('../views', __FILE__)
+
+    def request(resource)
+      if resource.request.nil? && resource.class.mail_appendable.any?
+        raise ScriptError, "You set :append values but forgot to give me the request object"
+      end
+
+      @resource = @form = resource
+
+      resource.class.mail_attachments.each do |attribute|
+        value = resource.send(attribute)
+        next unless value.respond_to?(:read)
+        attachments[value.original_filename] = value.read
+      end
+
+      headers = resource.headers
+      headers[:to] = %("#{resource.fullname}" <#{resource.email}>)
+      headers[:from] = Ecm::Subscriptions.config.recipients
+      headers[:subject] ||= resource.class.model_name.human
+      mail(headers)
+    end
+
+    def confirmation(resource)
+      if resource.request.nil? && resource.class.mail_appendable.any?
+        raise ScriptError, "You set :append values but forgot to give me the request object"
+      end
+
+      @resource = @form = resource
+
+      resource.class.mail_attachments.each do |attribute|
+        value = resource.send(attribute)
+        next unless value.respond_to?(:read)
+        attachments[value.original_filename] = value.read
+      end
+
+      headers = resource.headers
+      headers[:to] = Ecm::Subscriptions.config.recipients
+      headers[:from] = %("#{resource.fullname}" <#{resource.email}>)
+      headers[:subject] ||= resource.class.model_name.human
+      mail(headers)
+    end
+  end
 end

@@ -1,5 +1,5 @@
 class SubscriptionRequest < Ecm::SubscriptionRequest
   def to
-    "robotex@robotex.de"
+    "john.doe@example.com"
   end  
 end
