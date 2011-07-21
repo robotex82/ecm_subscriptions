@@ -1,0 +1,23 @@
+en:
+  mail_form:
+    models:
+      subscription_request: "Abonnieren"
+    attributes:
+      subscription_request:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        zip_code: "PLZ"
+        city: "Ort"
+        email: "E-Mail"
+        phone: "Telefon"
+        account_number: "Kontonummer"
+        bank_code: "BLZ"
+        bank: "Name der Bank" 
+        account_holder: "Kontoinhaber"
+        payment_method: "Zahlungsart"
+        payment_method_bank_transfer: "Überweisung"
+        payment_method_direct_debit: "Bankeinzug"
+    request:
+      title: "Technische Informationen über den Benutzer"
+      remote_ip: "IP Adresse"
+      user_agent: "Browser"

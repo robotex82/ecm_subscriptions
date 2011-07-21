@@ -1,0 +1,75 @@
+<%= form_for @subscription_request do |f| %>
+  <% if @subscription_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subscription_request.errors.count, "error") %> prohibited this subscription request from being delivered:</h2>
+
+      <ul>
+      <% @subscription_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :account_number %><br />
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_code %><br />
+    <%= f.text_field :bank_code %>
+  </div>
+  <div class="field">
+    <%= f.label :bank %><br />
+    <%= f.text_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :account_holder %><br />
+    <%= f.text_field :account_holder %>
+  </div>    
+  
+  <h2><%= f.label :payment_method %></h2>
+  
+  <div class="field">
+    <%= f.label :payment_method_bank_transfer %><br />
+    <%= f.radio_button :payment_method, :bank_transfer %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_method_direct_debit %><br />
+    <%= f.radio_button :payment_method, :direct_debit %>
+  </div>        
+  
+  <div class="field" style="display: none">
+    <%= f.label :nickname %><br />
+    <%= f.text_area :nickname %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
