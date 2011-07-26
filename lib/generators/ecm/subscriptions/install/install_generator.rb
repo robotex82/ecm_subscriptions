@@ -1,7 +1,7 @@
 require 'rails/generators/migration'
 
 module Ecm
-  module Subscription
+  module Subscriptions
     module Generators
       class InstallGenerator < Rails::Generators::Base
         desc "Generates the initializer"

@@ -1,7 +1,7 @@
 require 'rails/generators/migration'
 
 module Ecm
-  module Subscription
+  module Subscriptions
     module Generators
       class PremiaGenerator < Rails::Generators::Base
         include Rails::Generators::Migration
