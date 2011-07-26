@@ -1,0 +1,24 @@
+en:
+  mail_form:
+    models:
+      subscription_request: "Subscription Request"
+    attributes:
+      subscription_request:
+        firstname: "Firstname"
+        lastname: "Lastname"
+        zip_code: "Zip code"
+        city: "City"
+        email: "E-Mail"
+        phone: "Telephone number"
+        account_number: "Bank account number"
+        bank_code: "Bank code"
+        bank: "Bank" 
+        account_holder: "Account holder"
+        payment_method: "Payment method"
+        payment_method_bank_transfer: "Bank transfer"
+        payment_method_direct_debit: "Direct debit"
+        subscription_premium: "Premium"
+    request:
+      title: "Technical information about the user"
+      remote_ip: "IP Address"
+      user_agent: "Browser"
