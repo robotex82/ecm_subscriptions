@@ -3,7 +3,8 @@ class CreateSubscriptionPremia < ActiveRecord::Migration
     create_table :subscription_premia do |t|
       t.string :name
       t.text :description
-      t.integer :price_as_integer, :default => 0
+      t.integer :price_cents, :default => 0, :null => false
+      t.string :currency
 
       t.timestamps
     end

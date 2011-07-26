@@ -64,7 +64,7 @@
     <%= f.radio_button :payment_method, :direct_debit %>
   </div>        
   
-  <% if @subscription_premia %>
+  <% if @subscription_premia && !@subscription_premia.empty %>
     <h2><%= f.label :subscription_premium %></h2>
     
     <% @subscription_premia.each do |subscription_premium| %>
