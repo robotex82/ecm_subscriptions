@@ -15,6 +15,9 @@ class Ecm::SubscriptionRequest < MailForm::Base
   attribute :account_holder, :validate => true
   attribute :payment_method # , :validate => true
   
+  attribute :subscription_premium
+  validates_inclusion_of :subscription_premium, :in => ::SubscriptionPremium.all.collect(&:name), :if => "::Ecm::Subscriptions.premia_enabled?"
+  
   attribute :nickname,  :captcha  => true
 
   # Declare the e-mail headers. It accepts anything the mail method

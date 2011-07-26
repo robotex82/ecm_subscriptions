@@ -17,4 +17,5 @@ end
 
 gem 'ecm_frontend', :git => 'git://github.com/robotex82/ecm_frontend.git'
 gem 'mail_form'
+gem 'money'
 

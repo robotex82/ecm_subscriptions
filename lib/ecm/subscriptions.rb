@@ -13,5 +13,13 @@ module Ecm
       return @@config
     end
     
+    def self.premia_enabled?
+      return false unless self.config.enable_premia
+      unless SubscriptionPremium.table_exists?
+        Rails.logger.warn("Ecm::Subscriptions: Enabled Subscription Premia, but missing table for Subscription Premia!")
+        return false
+      end  
+      return true
+    end  
   end  
 end

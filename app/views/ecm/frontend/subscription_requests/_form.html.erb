@@ -64,6 +64,18 @@
     <%= f.radio_button :payment_method, :direct_debit %>
   </div>        
   
+  <% if @subscription_premia %>
+    <h2><%= f.label :subscription_premia %></h2>
+    
+    <% @subscription_premia.each do |subscription_premium| %>
+      <div class="field">
+        <%= f.label :subscription_premium, subscription_premium.label %><br />
+        <%= f.radio_button :subscription_premium, subscription_premium.name %>
+      </div>    
+    <% end %>
+
+  <% end %>
+  
   <div class="field" style="display: none">
     <%= f.label :nickname %><br />
     <%= f.text_area :nickname %>

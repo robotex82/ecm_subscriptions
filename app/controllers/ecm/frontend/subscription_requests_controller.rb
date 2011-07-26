@@ -1,6 +1,9 @@
 class Ecm::Frontend::SubscriptionRequestsController < Ecm::FrontendController
   def new
     @subscription_request = ::SubscriptionRequest.new
+    if Ecm::Subscriptions.premia_enabled?
+      @subscription_premia = ::SubscriptionPremium.all
+    end  
 
     respond_to do |format|
       format.html # new.html.erb
@@ -9,6 +12,9 @@ class Ecm::Frontend::SubscriptionRequestsController < Ecm::FrontendController
 
   def create
     @subscription_request = ::SubscriptionRequest.new(params[:subscription_request])
+    if Ecm::Subscriptions.premia_enabled?
+      @subscription_premia = ::SubscriptionPremium.all
+    end  
 
     respond_to do |format|
       if @subscription_request.deliver
