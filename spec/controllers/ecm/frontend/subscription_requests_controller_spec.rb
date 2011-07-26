@@ -54,6 +54,7 @@ module Ecm
         before(:each) do
           ActionMailer::Base.deliveries = []
         end
+        
         describe "without premia" do
           before(:each) do
             Ecm::Subscriptions.config.enable_premia = false
@@ -75,8 +76,35 @@ module Ecm
               post :create, :subscription_request => valid_attributes
               response.should redirect_to(new_subscription_request_path)
             end
-          end # describe "without premia" do
-        end # describe "with valid params"
+          end # describe "with valid params"
+        end # describe "without premia"
+        
+        describe "with premia" do
+          before(:each) do
+            Ecm::Subscriptions.config.enable_premia = true
+            SubscriptionPremium.all.map &:destroy
+            @subscription_premium = Factory(:subscription_premium) 
+            @valid_attributes = valid_attributes.merge(:subscription_premium => @subscription_premium.name)           
+          end
+        
+          describe "with valid params" do
+            it "should deliver the subscription request" do
+              expect {
+                post :create, :subscription_request => @valid_attributes
+              }.to change(ActionMailer::Base.deliveries, :size).by(2)  
+            end
+            
+            it "assigns a newly created subscription request as @subscription_request" do
+              post :create, :subscription_request => @valid_attributes
+              assigns(:subscription_request).should be_a(SubscriptionRequest)
+            end
+
+            it "redirects to the new action" do
+              post :create, :subscription_request => @valid_attributes
+              response.should redirect_to(new_subscription_request_path)
+            end
+          end # describe "with valid params"
+        end # describe "with premia"
         
         describe "with invalid params" do
           it "assigns a newly created but undelivered subscription request as @subscription_request" do

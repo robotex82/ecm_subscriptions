@@ -19,6 +19,17 @@ describe SubscriptionRequest do
         @subscription_request.subscription_premium = nil
         @subscription_request.should be_valid
       end
-    end
-  end
+    end # describe "without premia in the database"
+    
+    describe "with premia in the database" do
+      before(:each) do
+        SubscriptionPremium.all.map &:destroy
+        @subscription_request.subscription_premium = Factory(:subscription_premium).name
+      end
+      
+      it "should be valid with a premium" do
+        @subscription_request.should be_valid
+      end
+    end # describe "with premia in the database"
+  end # describe "with enabled premia"
 end
