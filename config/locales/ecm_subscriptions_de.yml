@@ -17,6 +17,7 @@ en:
         payment_method: "Zahlungsart"
         payment_method_bank_transfer: "Überweisung"
         payment_method_direct_debit: "Bankeinzug"
+        subscription_premium: "Prämie"
     request:
       title: "Technische Informationen über den Benutzer"
       remote_ip: "IP Adresse"
