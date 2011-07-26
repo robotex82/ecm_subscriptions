@@ -16,9 +16,13 @@ class Ecm::SubscriptionRequest < MailForm::Base
   attribute :payment_method # , :validate => true
   
   attribute :subscription_premium
-  validates_inclusion_of :subscription_premium, :in => ::SubscriptionPremium.all.collect(&:name), :if => "::Ecm::Subscriptions.premia_enabled?"
+  validates_inclusion_of :subscription_premium, :in => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?
   
   attribute :nickname,  :captcha  => true
+  
+  def validate_premia?
+    ::Ecm::Subscriptions.premia_enabled? && SubscriptionPremium.all.count > 0
+  end  
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
