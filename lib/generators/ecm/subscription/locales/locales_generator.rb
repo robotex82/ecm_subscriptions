@@ -10,7 +10,7 @@ module Ecm
         
         def generate_locales
           copy_file "ecm_subscriptions_en.yml", "config/locales/ecm_subscriptions_en.yml"
-          copy_file "ecm_subscriptions_de.yml", "config/locales/ecm_subscriptions_de.yml"
+          copy_file "ecm_subscriptions_de.yml", "config/locales/ecm_subscriptions_de.yml
         end      
       end
     end
