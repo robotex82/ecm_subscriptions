@@ -6,7 +6,6 @@ class CreateSubscriptionPremia < ActiveRecord::Migration
       t.integer :price_cents, :default => 0, :null => false
       t.string :currency
 
-
       t.timestamps
     end
   end

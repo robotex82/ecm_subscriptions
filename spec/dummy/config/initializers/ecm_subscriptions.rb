@@ -9,5 +9,5 @@ Ecm::Subscriptions.config do |config|
   #
   # and migrate.
   # 
-  config.enable_premia = true
+  # config.enable_premia = true
 end

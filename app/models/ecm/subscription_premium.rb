@@ -17,4 +17,8 @@ class Ecm::SubscriptionPremium < ActiveRecord::Base
   def formatted_price
     "#{price.to_s} #{price.currency.to_s}"
   end  
+  
+  def currency
+    price.currency.to_s
+  end    
 end

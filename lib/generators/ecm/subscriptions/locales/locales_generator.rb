@@ -1,5 +1,3 @@
-
-
 module Ecm
   module Subscriptions
     module Generators

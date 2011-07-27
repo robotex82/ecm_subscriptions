@@ -1,0 +1,16 @@
+## Ein neues Abonnement wurde abgeschlossen! ##
+
+Es wurden folgende Angaben gemacht:  
+
+<% @resource.attributes.each do |attribute, value|
+  next if value.blank? %>
+  * *<%= @resource.class.human_attribute_name(attribute) %>:* <%= case value
+    when /\n/
+      raw(simple_format(h(value)))
+    when Time, DateTime, Date
+      I18n.l(value)
+    else
+      value
+    end
+  %>  
+<% end %>
