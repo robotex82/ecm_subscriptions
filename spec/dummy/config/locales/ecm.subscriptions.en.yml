@@ -1,4 +1,6 @@
 en:
+  bank_transfer: "Bank transfer"
+  direct_debit: "Direct debit"
   mail_form:
     models:
       subscription_request: "Subscription Request"
@@ -18,6 +20,7 @@ en:
         payment_method_bank_transfer: "Bank transfer"
         payment_method_direct_debit: "Direct debit"
         subscription_premium: "Premium"
+        subscription_premia: "Premiums"
     request:
       title: "Technical information about the user"
       remote_ip: "IP Address"

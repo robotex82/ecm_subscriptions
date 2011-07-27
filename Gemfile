@@ -15,6 +15,7 @@ group :test do
   gem 'factory_girl_rails'
 end  
 
+gem 'ecm_core', :git => 'git://github.com/robotex82/ecm_core.git'
 gem 'ecm_frontend', :git => 'git://github.com/robotex82/ecm_frontend.git'
 gem 'mail_form'
 gem 'money'

@@ -1,10 +1,10 @@
 module Ecm
   module SubscriptionRequests
     class Notifier < ActionMailer::Base
-      self.mailer_name = "mail_form"
-      append_view_path File.expand_path('../views', __FILE__)
+      # self.mailer_name = "mail_form"
+      append_view_path File.expand_path('../../../views', __FILE__)
 
-      def request(resource)
+      def subscriber_confirmation(resource)
         if resource.request.nil? && resource.class.mail_appendable.any?
           raise ScriptError, "You set :append values but forgot to give me the request object"
         end
@@ -22,6 +22,10 @@ module Ecm
         headers[:from] = Ecm::Subscriptions.config.recipients
         headers[:subject] ||= resource.class.model_name.human
         mail(headers)
+#        mail(headers) do |format|
+#          format.html { render 'another_template' }
+#          format.text { render 'another_template' }
+#        end
       end
 
       def confirmation(resource)
@@ -42,6 +46,10 @@ module Ecm
         headers[:from] = %("#{resource.fullname}" <#{resource.email}>)
         headers[:subject] ||= resource.class.model_name.human
         mail(headers)
+#        mail(headers) do |format|
+#          format.html { render 'another_template' }
+#          format.text { render 'another_template' }
+#        end
       end
     end
   end    

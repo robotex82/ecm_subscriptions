@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
   s.add_dependency('mail_form')
   s.add_dependency('money')
+  s.add_dependency('ecm_core')
 end

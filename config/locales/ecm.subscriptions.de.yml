@@ -1,4 +1,6 @@
 de:
+  bank_transfer: "Überweisung"
+  direct_debit: "Bankeinzug"
   mail_form:
     models:
       subscription_request: "Abonnieren"
@@ -18,6 +20,7 @@ de:
         payment_method_bank_transfer: "Überweisung"
         payment_method_direct_debit: "Bankeinzug"
         subscription_premium: "Prämie"
+        subscription_premia: "Prämien"
     request:
       title: "Technische Informationen über den Benutzer"
       remote_ip: "IP Adresse"
