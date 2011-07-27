@@ -15,10 +15,19 @@ class Ecm::SubscriptionRequest < MailForm::Base
   attribute :account_holder, :validate => true
   attribute :payment_method # , :validate => true
   
-  attribute :subscription_premium
-  validates_inclusion_of :subscription_premium, :in => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?
+
+  #attribute :subscription_premium_name
+  #validates_inclusion_of :subscription_premium_name, :in => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?
+  attribute :subscription_premium_id
+  attribute :subscription_premium_name
+  # validates :subscription_premium_id, :presence => true, :if => :validate_premia?
+  validates :subscription_premium_name, :inclusion => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?  
   
   attribute :nickname,  :captcha  => true
+  
+  def subscription_premium_id=(id)
+    self.subscription_premium_name = ::SubscriptionPremium.find(id).name rescue nil
+  end
   
   def validate_premia?
     ::Ecm::Subscriptions.premia_enabled? && SubscriptionPremium.all.count > 0

@@ -84,7 +84,7 @@ module Ecm
             Ecm::Subscriptions.config.enable_premia = true
             SubscriptionPremium.all.map &:destroy
             @subscription_premium = Factory(:subscription_premium) 
-            @valid_attributes = valid_attributes.merge(:subscription_premium => @subscription_premium.name)           
+            @valid_attributes = valid_attributes.merge(:subscription_premium_id => @subscription_premium)           
           end
         
           describe "with valid params" do

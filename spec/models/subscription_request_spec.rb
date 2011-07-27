@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SubscriptionRequest do
   before(:each) do
-    @subscription_request= SubscriptionRequest.new(Factory.attributes_for(:subscription_request))
+    @subscription_request = SubscriptionRequest.new(Factory.attributes_for(:subscription_request))
   end
   
   describe "with enabled premia" do
@@ -16,7 +16,7 @@ describe SubscriptionRequest do
       end
       
       it "should be valid without a premium" do
-        @subscription_request.subscription_premium = nil
+        @subscription_request.subscription_premium_id = nil
         @subscription_request.should be_valid
       end
     end # describe "without premia in the database"
@@ -24,7 +24,7 @@ describe SubscriptionRequest do
     describe "with premia in the database" do
       before(:each) do
         SubscriptionPremium.all.map &:destroy
-        @subscription_request.subscription_premium = Factory(:subscription_premium).name
+        @subscription_request.subscription_premium_id = Factory(:subscription_premium).id
       end
       
       it "should be valid with a premium" do
