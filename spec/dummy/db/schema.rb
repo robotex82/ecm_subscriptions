@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727004838) do
+ActiveRecord::Schema.define(:version => 20110728150814) do
+
+  create_table "subscription_options", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subscription_premia", :force => true do |t|
     t.string   "name"

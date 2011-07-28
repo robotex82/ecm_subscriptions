@@ -4,7 +4,11 @@ class Ecm::Frontend::SubscriptionRequestsController < Ecm::FrontendController
     if Ecm::Subscriptions.premia_enabled?
       @subscription_premia = ::SubscriptionPremium.all
     end  
-
+    
+    if Ecm::Subscriptions.options_enabled?
+      @subscription_options = ::SubscriptionOption.all
+    end  
+    
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -14,7 +18,11 @@ class Ecm::Frontend::SubscriptionRequestsController < Ecm::FrontendController
     @subscription_request = ::SubscriptionRequest.new(params[:subscription_request])
     if Ecm::Subscriptions.premia_enabled?
       @subscription_premia = ::SubscriptionPremium.all
-    end  
+    end
+    
+    if Ecm::Subscriptions.options_enabled?
+      @subscription_options = ::SubscriptionOption.all
+    end    
 
     respond_to do |format|
       if @subscription_request.deliver

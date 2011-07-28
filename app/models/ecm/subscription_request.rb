@@ -15,16 +15,13 @@ class Ecm::SubscriptionRequest < MailForm::Base
   attribute :account_holder, :validate => true
   attribute :payment_method # , :validate => true
   
+  attribute :nickname,  :captcha  => true
 
-  #attribute :subscription_premium_name
-  #validates_inclusion_of :subscription_premium_name, :in => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?
+
   attribute :subscription_premium_id
   attribute :subscription_premium_name
-  # validates :subscription_premium_id, :presence => true, :if => :validate_premia?
   validates :subscription_premium_name, :inclusion => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?  
-  
-  attribute :nickname,  :captcha  => true
-  
+
   def subscription_premium_id=(id)
     self.subscription_premium_name = ::SubscriptionPremium.find(id).name rescue nil
   end
@@ -32,6 +29,20 @@ class Ecm::SubscriptionRequest < MailForm::Base
   def validate_premia?
     ::Ecm::Subscriptions.premia_enabled? && SubscriptionPremium.all.count > 0
   end  
+  
+  
+  attribute :subscription_option_id
+  attribute :subscription_option_name
+  validates :subscription_option_name, :inclusion => ::SubscriptionOption.all.collect(&:name), :if => :validate_options?  
+
+  def subscription_option_id=(id)
+    self.subscription_option_name = ::SubscriptionOption.find(id).name rescue nil
+  end
+  
+  def validate_options?
+    ::Ecm::Subscriptions.options_enabled? && SubscriptionOption.all.count > 0
+  end  
+  
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
@@ -49,49 +60,5 @@ class Ecm::SubscriptionRequest < MailForm::Base
     ::Ecm::SubscriptionRequests::Notifier.subscriber_confirmation(self).deliver
     ::Ecm::SubscriptionRequests::Notifier.confirmation(self).deliver
   end  
-    
-#  class Notifier < ActionMailer::Base
-#    self.mailer_name = "mail_form"
-#    # append_view_path File.expand_path('../views', __FILE__)
 
-#    def request(resource)
-#      if resource.request.nil? && resource.class.mail_appendable.any?
-#        raise ScriptError, "You set :append values but forgot to give me the request object"
-#      end
-
-#      @resource = @form = resource
-
-#      resource.class.mail_attachments.each do |attribute|
-#        value = resource.send(attribute)
-#        next unless value.respond_to?(:read)
-#        attachments[value.original_filename] = value.read
-#      end
-
-#      headers = resource.headers
-#      headers[:to] = %("#{resource.fullname}" <#{resource.email}>)
-#      headers[:from] = Ecm::Subscriptions.config.recipients
-#      headers[:subject] ||= resource.class.model_name.human
-#      mail(headers)
-#    end
-
-#    def confirmation(resource)
-#      if resource.request.nil? && resource.class.mail_appendable.any?
-#        raise ScriptError, "You set :append values but forgot to give me the request object"
-#      end
-
-#      @resource = @form = resource
-
-#      resource.class.mail_attachments.each do |attribute|
-#        value = resource.send(attribute)
-#        next unless value.respond_to?(:read)
-#        attachments[value.original_filename] = value.read
-#      end
-
-#      headers = resource.headers
-#      headers[:to] = Ecm::Subscriptions.config.recipients
-#      headers[:from] = %("#{resource.fullname}" <#{resource.email}>)
-#      headers[:subject] ||= resource.class.model_name.human
-#      mail(headers)
-#    end
-#  end
 end

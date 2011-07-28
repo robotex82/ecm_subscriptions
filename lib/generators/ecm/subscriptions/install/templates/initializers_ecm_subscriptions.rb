@@ -10,4 +10,13 @@ Ecm::Subscriptions.config do |config|
   # and migrate.
   # 
   # config.enable_premia = true
+  
+  # Enable or disable options functionality
+  # If enabled, don't forget to run
+  # 
+  # rails generate ecm:subscriptions:options 
+  #
+  # and migrate.
+  # 
+  # config.enable_options = true
 end

@@ -21,5 +21,14 @@ module Ecm
       end  
       return true
     end  
+    
+    def self.options_enabled?
+      return false unless self.config.enable_options
+      unless SubscriptionOption.table_exists?
+        Rails.logger.warn("Ecm::Subscriptions: Enabled Subscription Options, but missing table for Subscription Options!")
+        return false
+      end  
+      return true
+    end 
   end  
 end

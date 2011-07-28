@@ -62,7 +62,19 @@
   <div class="field">
     <%= f.label :payment_method_direct_debit %><br />
     <%= f.radio_button :payment_method, :direct_debit %>
-  </div>        
+  </div>  
+  
+  <% if @subscription_options.respond_to?(:size) && @subscription_options.size > 0 %>
+    <h2><%= f.label :subscription_option %></h2>
+    
+    <% @subscription_options.each do |subscription_option| %>
+      <div class="field">
+        <%= f.label :subscription_option_id, subscription_option.label %><br />
+        <%= f.radio_button :subscription_option_id, subscription_option.id %>
+      </div>    
+    <% end %>
+
+  <% end %>      
   
   <% if @subscription_premia.respond_to?(:size) && @subscription_premia.size > 0 %>
     <h2><%= f.label :subscription_premium %></h2>
