@@ -1,6 +1,7 @@
 en:
   activerecord:
     models:
+      subscription_premium: "Subscription Premium"    
       subscription_option: "Subscription Option"
     attributes:
       subscription_option:

@@ -1,10 +1,11 @@
 de:
   activerecord:
     models:
+      subscription_premium: "Abonnement Prämien"    
       subscription_option: "Abonnement Optionen"
     attributes:
       subscription_option:
-        label: "%{months} Monate zum Preis von %{price} %{currency}"
+        label: "%{months} Monate zum Preis von %{formatted_price}"
       subscription_premium:
         label: "%{name} (Zuzahlung: %{formatted_price})"            
   bank_transfer: "Überweisung"
