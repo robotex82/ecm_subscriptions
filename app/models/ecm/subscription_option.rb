@@ -1,9 +1,6 @@
 class Ecm::SubscriptionOption < ActiveRecord::Base
   self.abstract_class = true
-  
-  # validates :name, :presence => true, :uniqueness => true
-  # validates :description, :presence => true
-  validates :price_in_cents, :presence => true
+
   validates :months, :presence => true
   
   composed_of :price,

@@ -3,7 +3,7 @@ class CreateSubscriptionOptions < ActiveRecord::Migration
     create_table :subscription_options do |t|
       # t.string :name
       t.integer :months
-      t.integer :price_in_cents, :default => 0, :null => false
+      t.integer :price_cents, :default => 0, :null => false
       t.string :currency
       t.text :description
 
