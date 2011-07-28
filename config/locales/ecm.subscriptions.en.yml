@@ -1,4 +1,12 @@
 en:
+  activerecord:
+    models:
+      subscription_option: "Subscription Option"
+    attributes:
+      subscription_option:
+        label: "%{months} months at %{formatted_price}"
+      subscription_premium:
+        label: "%{name} at %{formatted_price}"        
   bank_transfer: "Bank transfer"
   direct_debit: "Direct debit"
   mail_form:
@@ -21,6 +29,8 @@ en:
         payment_method_direct_debit: "Direct debit"
         subscription_premium: "Premium"
         subscription_premia: "Premiums"
+        subscription_option: "Option"
+        subscription_options: "Options"
     request:
       title: "Technical information about the user"
       remote_ip: "IP Address"

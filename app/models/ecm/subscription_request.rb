@@ -19,12 +19,29 @@ class Ecm::SubscriptionRequest < MailForm::Base
 
 
   attribute :subscription_premium_id
-  attribute :subscription_premium_name
-  validates :subscription_premium_name, :inclusion => ::SubscriptionPremium.all.collect(&:name), :if => :validate_premia?  
-
+  attribute :subscription_premium_label
+  # validates :subscription_premium, :inclusion => ::SubscriptionPremium.all, :if => :validate_premia?  
+  validates :subscription_premium_id, :presence => true, :if => :validate_premia?  
+  
+  def subscription_premium=(subscription_premium)
+    @subscription_premium = subscription_premium
+  end  
+  
+  def subscription_premium
+    @subscription_premium
+  end 
+  
   def subscription_premium_id=(id)
-    self.subscription_premium_name = ::SubscriptionPremium.find(id).name rescue nil
-  end
+    @subscription_premium = ::SubscriptionPremium.find(id) rescue nil
+  end     
+  
+  def subscription_premium_id
+    @subscription_premium.id rescue nil
+  end 
+  
+  def subscription_premium_label
+    @subscription_premium.label rescue nil
+  end 
   
   def validate_premia?
     ::Ecm::Subscriptions.premia_enabled? && SubscriptionPremium.all.count > 0
@@ -32,12 +49,29 @@ class Ecm::SubscriptionRequest < MailForm::Base
   
   
   attribute :subscription_option_id
-  attribute :subscription_option_name
-  validates :subscription_option_name, :inclusion => ::SubscriptionOption.all.collect(&:name), :if => :validate_options?  
-
+  attribute :subscription_option_label
+  # validates :subscription_option, :inclusion => ::SubscriptionOption.all, :if => :validate_options?
+  validates :subscription_option_id, :presence => true, :if => :validate_options?    
+  
+  def subscription_option=(subscription_option)
+    @subscription_option = subscription_option
+  end  
+  
+  def subscription_option
+    @subscription_option
+  end 
+  
   def subscription_option_id=(id)
-    self.subscription_option_name = ::SubscriptionOption.find(id).name rescue nil
-  end
+    @subscription_option = ::SubscriptionOption.find(id) rescue nil
+  end     
+  
+  def subscription_option_id
+    @subscription_option.id rescue nil
+  end 
+  
+  def subscription_option_label
+    @subscription_option.label rescue nil
+  end    
   
   def validate_options?
     ::Ecm::Subscriptions.options_enabled? && SubscriptionOption.all.count > 0

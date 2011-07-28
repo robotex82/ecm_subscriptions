@@ -69,7 +69,7 @@
     
     <% @subscription_options.each do |subscription_option| %>
       <div class="field">
-        <%= f.label :subscription_option_id, subscription_option.label %><br />
+        <%= f.label "subscription_option_id_#{subscription_option.id}", subscription_option.label %><br />
         <%= f.radio_button :subscription_option_id, subscription_option.id %>
       </div>    
     <% end %>
@@ -81,9 +81,9 @@
     
     <% @subscription_premia.each do |subscription_premium| %>
       <div class="field">
-        <%= f.label :subscription_premium_id, subscription_premium.label %><br />
+        <%= f.label "subscription_premium_id_#{subscription_premium.id}", subscription_premium.label %><br />
         <%= f.radio_button :subscription_premium_id, subscription_premium.id %>
-      </div>    
+      </div>      
     <% end %>
 
   <% end %>

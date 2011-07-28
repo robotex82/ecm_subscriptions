@@ -12,6 +12,8 @@ Factory.define(:subscription_request) do |subscription_request|
   subscription_request.account_holder 'John Doe'
   subscription_request.payment_method 'direct_debit'
   
-  subscription_request.subscription_premium_name 'USB Stick'
-  subscription_request.subscription_option_name '24 Monate'
+  #subscription_request.subscription_premium_name 'USB Stick'
+  #subscription_request.subscription_option_name '24 Monate'
+  subscription_request.association :subscription_premium
+  subscription_request.association :subscription_option
 end

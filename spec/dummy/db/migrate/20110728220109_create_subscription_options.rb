@@ -1,7 +1,10 @@
 class CreateSubscriptionOptions < ActiveRecord::Migration
   def self.up
     create_table :subscription_options do |t|
-      t.string :name
+      # t.string :name
+      t.integer :months
+      t.integer :price_in_cents, :default => 0, :null => false
+      t.string :currency
       t.text :description
 
       t.timestamps

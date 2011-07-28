@@ -10,10 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728150814) do
+ActiveRecord::Schema.define(:version => 20110728220109) do
 
   create_table "subscription_options", :force => true do |t|
-    t.string   "name"
+    t.integer  "months"
+    t.integer  "price_in_cents", :default => 0, :null => false
+    t.string   "currency"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
