@@ -23,6 +23,10 @@ module Ecm
         def generate_premia
           generate('ecm:subscriptions:premia')
         end 
+        
+        def generate_options
+          generate('ecm:subscriptions:options')
+        end 
       end
     end
   end

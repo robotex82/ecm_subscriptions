@@ -1,7 +1,7 @@
 de:
   activerecord:
     models:
-      subscription_premium: "Abonnement Prämien"    
+      subscription_premium: "Abonnement Prämie"    
       subscription_option: "Abonnement Optionen"
     attributes:
       subscription_option:
@@ -10,6 +10,11 @@ de:
         label: "%{name} (Zuzahlung: %{formatted_price})"            
   bank_transfer: "Überweisung"
   direct_debit: "Bankeinzug"
+  subscription_option: "Abonnement Optionen"
+  subscription_premium: "Abonnement Prämie"  
+  subscriber_address: "Adresse des Abonnenten" 
+  payment_information: "Zahlungsinformationen" 
+  payment_method: "Zahlungsart"
   mail_form:
     models:
       subscription_request: "Abonnieren"

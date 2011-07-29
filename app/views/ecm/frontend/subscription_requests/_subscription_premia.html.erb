@@ -1,0 +1,11 @@
+<% if @subscription_premia.respond_to?(:size) && @subscription_premia.size > 0 %>
+  <fieldset>
+    <legend><%= t :subscription_premium %></legend>
+      <% @subscription_premia.each do |subscription_premium| %>
+        <div class="field">
+          <%= f.radio_button :subscription_premium_id, subscription_premium.id %>
+          <%= f.label "subscription_premium_id_#{subscription_premium.id}", subscription_premium.label %>      
+        </div>      
+      <% end %>
+  </fieldset>
+<% end %>

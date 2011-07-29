@@ -1,0 +1,14 @@
+<% if @subscription_options.respond_to?(:size) && @subscription_options.size > 0 %>
+  <fieldset>
+    <legend><%= t :subscription_option %></legend>  
+    <% @subscription_options.each do |subscription_option| %>
+      <div class="field">
+        <%= f.radio_button :subscription_option_id, subscription_option.id %>
+        <%= f.label "subscription_option_id_#{subscription_option.id}", subscription_option.label %>  
+        <% if subscription_option.description %>
+          <p><%= subscription_option.description %></p>    
+        <% end %>  
+      </div>    
+    <% end %>
+  </fieldset>
+<% end %>   

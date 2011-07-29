@@ -1,0 +1,11 @@
+<% if subscription_request.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(subscription_request.errors.count, "error") %> prohibited this subscription request from being delivered:</h2>
+
+    <ul>
+    <% subscription_request.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

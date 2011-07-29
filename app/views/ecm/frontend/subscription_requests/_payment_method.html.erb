@@ -1,0 +1,12 @@
+<fieldset>
+  <legend><%= t :payment_method %></legend>  
+
+  <div class="field">
+    <%= f.radio_button :payment_method, :bank_transfer %>
+    <%= f.label :payment_method_bank_transfer %>
+  </div>
+  <div class="field">
+    <%= f.radio_button :payment_method, :direct_debit %>
+    <%= f.label :payment_method_direct_debit %>
+  </div>  
+</fieldset>  
