@@ -3,6 +3,9 @@
   <%= render :partial => 'subscription_options', :locals => { :f => f, :subscription_options => @subscription_options } %>
   <%= render :partial => 'subscription_premia',  :locals => { :f => f, :subscription_premia  => @subscription_premia  } %>
   <%= render :partial => 'subscriber_address',   :locals => { :f => f } %>
+  <% if Ecm::Subscriptions.config.enable_gift_address %>
+    <%= render :partial => 'gift_recipient_address',   :locals => { :f => f } %>
+  <% end %>
   <%= render :partial => 'payment_information',  :locals => { :f => f } %>
   <%= render :partial => 'payment_method',       :locals => { :f => f } %>
   <%= render :partial => 'spam_honeypot',        :locals => { :f => f } %>

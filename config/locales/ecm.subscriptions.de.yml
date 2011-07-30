@@ -15,6 +15,7 @@ de:
   subscriber_address: "Adresse des Abonnenten" 
   payment_information: "Zahlungsinformationen" 
   payment_method: "Zahlungsart"
+  gift_recipient_address: "Abonnement als Geschenk"
   mail_form:
     models:
       subscription_request: "Abonnieren"
@@ -23,9 +24,15 @@ de:
         firstname: "Vorname"
         lastname: "Nachname"
         zip_code: "PLZ"
+        street: "Straße"
         city: "Ort"
         email: "E-Mail"
         phone: "Telefon"
+        gift_recipient_firstname: "Vorname"
+        gift_recipient_lastname: "Nachname"
+        gift_recipient_zip_code: "PLZ"
+        gift_recipient_street: "Straße"        
+        gift_recipient_city: "Ort"        
         account_number: "Kontonummer"
         bank_code: "BLZ"
         bank: "Name der Bank" 

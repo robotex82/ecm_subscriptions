@@ -1,9 +1,10 @@
 GIT
   remote: git://github.com/robotex82/ecm_core.git
-  revision: 18c289ffeeca27705aa0a1989e97d1d81b209350
+  revision: bdf160ebc34f57bf95e2d21e86f1826b00c8759b
   specs:
     ecm_core (0.0.1)
       markerb
+      rdiscount
 
 GIT
   remote: git://github.com/robotex82/ecm_frontend.git
@@ -95,6 +96,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.4)
     rake (0.9.2)
+    rdiscount (1.6.8)
     rdoc (3.8)
     redcarpet (1.17.2)
     rspec (2.6.0)

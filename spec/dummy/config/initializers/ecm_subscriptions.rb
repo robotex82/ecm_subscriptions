@@ -20,4 +20,6 @@ Ecm::Subscriptions.config do |config|
   # 
   # config.enable_options = true
   config.enable_options = true
+  
+  config.enable_gift_address = false
 end

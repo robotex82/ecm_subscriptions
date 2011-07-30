@@ -4,10 +4,17 @@ class Ecm::SubscriptionRequest < MailForm::Base
   
   attribute :firstname, :validate => true
   attribute :lastname,  :validate => true
+  attribute :street,    :validate => true
   attribute :zip_code,  :validate => true
   attribute :city,      :validate => true
   attribute :email,     :validate => /[^@]+@[^\.]+\.[\w\.\-]+/
   attribute :phone,     :validate => true
+  
+  attribute :gift_recipient_firstname
+  attribute :gift_recipient_lastname
+  attribute :gift_recipient_street
+  attribute :gift_recipient_zip_code
+  attribute :gift_recipient_city
   
   attribute :account_number, :validate => true  
   attribute :bank_code,      :validate => true
