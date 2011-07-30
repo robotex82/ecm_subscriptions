@@ -6,7 +6,7 @@
         <%= f.radio_button :subscription_option_id, subscription_option.id %>
         <%= f.label "subscription_option_id_#{subscription_option.id}", subscription_option.label %>  
         <% if subscription_option.description %>
-          <p><%= subscription_option.description %></p>    
+          <p><%=m subscription_option.description %></p>    
         <% end %>  
       </div>    
     <% end %>
