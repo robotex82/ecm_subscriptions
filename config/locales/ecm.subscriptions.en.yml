@@ -1,4 +1,8 @@
 en:
+  helpers:
+    submit:
+      subscription_request:
+        create: "Submit subscription"
   activerecord:
     models:
       subscription_premium: "Subscription Premium"    
@@ -16,6 +20,7 @@ en:
   payment_information: "Payment information" 
   payment_method: "Payment method"
   gift_recipient_address: "Send as gift"  
+  subscribe_now: "Antrag absenden"
   mail_form:
     models:
       subscription_request: "Subscription Request"

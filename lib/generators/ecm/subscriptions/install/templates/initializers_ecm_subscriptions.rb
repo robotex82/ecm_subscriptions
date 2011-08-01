@@ -19,4 +19,8 @@ Ecm::Subscriptions.config do |config|
   # and migrate.
   # 
   # config.enable_options = true
+
+  # Enable form fields to enter a gift address
+  # config.enable_options = true  
+  config.enable_gift_address = true
 end
