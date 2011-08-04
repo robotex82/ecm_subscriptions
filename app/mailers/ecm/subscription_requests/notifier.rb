@@ -21,11 +21,11 @@ module Ecm
         headers[:to] = %("#{resource.fullname}" <#{resource.email}>)
         headers[:from] = Ecm::Subscriptions.config.recipients
         headers[:subject] ||= resource.class.model_name.human
-        mail(headers)
-#        mail(headers) do |format|
-#          format.html { render 'another_template' }
-#          format.text { render 'another_template' }
-#        end
+#        mail(headers)
+        mail(headers) do |format|
+          format.text
+          format.html
+        end
       end
 
       def confirmation(resource)

@@ -1,26 +1,10 @@
 de:
-  helpers:
-    submit:
-      subscription_request:
-        create: "Antrag absenden"
-  activerecord:
-    models:
-      subscription_premium: "Abonnement Prämie"    
-      subscription_option: "Abonnement Optionen"
-    attributes:
-      subscription_option:
-        label: "%{months} Monate zum Preis von %{formatted_price}"
-      subscription_premium:
-        label: "%{name} (Zuzahlung: %{formatted_price})"            
   bank_transfer: "Überweisung"
   direct_debit: "Bankeinzug"
-  subscription_option: "Abonnement Optionen"
-  subscription_premium: "Abonnement Prämie"  
-  subscriber_address: "Adresse des Abonnenten" 
-  payment_information: "Zahlungsinformationen" 
-  payment_method: "Zahlungsart"
-  gift_recipient_address: "Abonnement als Geschenk"
-  subscribe_now: "Antrag absenden"
+  activerecord:
+    models:
+      subscription_premium: "Abonnement Prämie"
+      subscription_premium: "Abonnement Option"
   mail_form:
     models:
       subscription_request: "Abonnieren"
@@ -29,15 +13,9 @@ de:
         firstname: "Vorname"
         lastname: "Nachname"
         zip_code: "PLZ"
-        street: "Straße"
         city: "Ort"
         email: "E-Mail"
         phone: "Telefon"
-        gift_recipient_firstname: "Vorname"
-        gift_recipient_lastname: "Nachname"
-        gift_recipient_zip_code: "PLZ"
-        gift_recipient_street: "Straße"        
-        gift_recipient_city: "Ort"        
         account_number: "Kontonummer"
         bank_code: "BLZ"
         bank: "Name der Bank" 
@@ -45,10 +23,13 @@ de:
         payment_method: "Zahlungsart"
         payment_method_bank_transfer: "Überweisung"
         payment_method_direct_debit: "Bankeinzug"
-        subscription_premium: "Prämie"
+        subscription_premium: "Abonnement Prämie"
+        subscription_premium_id: "Abonnement Prämie"        
+        subscription_premium_label: "Abonnement Prämie"
         subscription_premia: "Prämien"
-        subscription_option: "Option"
-        subscription_options: "Optionen"
+        subscription_option: "Abonnement Option"
+        subscription_option_id: "Abonnement Option"
+        subscription_option_label: "Abonnement Option"
     request:
       title: "Technische Informationen über den Benutzer"
       remote_ip: "IP Adresse"
