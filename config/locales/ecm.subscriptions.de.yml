@@ -1,10 +1,20 @@
 de:
+  subscription_option: "Abonnement Option"
+  subscription_premium: "Abonnement Prämie"
+  subscriber_address: "Adresse"
   bank_transfer: "Überweisung"
   direct_debit: "Bankeinzug"
+  gift_recipient_address: "Abonnement als Geschenk"
+  payment_information: "Zahlungsinformationen"
+  payment_method: "Zahlungsart"
+  submit_subscription: "Antrag absenden"
   activerecord:
     models:
       subscription_premium: "Abonnement Prämie"
-      subscription_premium: "Abonnement Option"
+      subscription_option: "Abonnement Option"
+    attributes:  
+      subscription_option:
+        label: "%{months} Monate zum Preis von %{formatted_price}"
   mail_form:
     models:
       subscription_request: "Abonnieren"
@@ -12,6 +22,8 @@ de:
       subscription_request:
         firstname: "Vorname"
         lastname: "Nachname"
+        company: "Firma"
+        street: "Strasse"
         zip_code: "PLZ"
         city: "Ort"
         email: "E-Mail"
@@ -20,6 +32,11 @@ de:
         bank_code: "BLZ"
         bank: "Name der Bank" 
         account_holder: "Kontoinhaber"
+        gift_recipient_firstname: "Vorname"
+        gift_recipient_lastname: "Nachname"
+        gift_recipient_street: "Strasse"
+        gift_recipient_zip_code: "PLZ"
+        gift_recipient_city: "Ort"
         payment_method: "Zahlungsart"
         payment_method_bank_transfer: "Überweisung"
         payment_method_direct_debit: "Bankeinzug"

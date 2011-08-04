@@ -4,6 +4,7 @@ class Ecm::SubscriptionRequest < MailForm::Base
   
   attribute :firstname, :validate => true
   attribute :lastname,  :validate => true
+  attribute :company
   attribute :street,    :validate => true
   attribute :zip_code,  :validate => true
   attribute :city,      :validate => true
